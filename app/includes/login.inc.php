@@ -14,7 +14,7 @@ if ($hash == 0){
     header("Location: ../../index.php?error=empty");
     exit();
 } else {
-    $result = pg_query($conn, "SELECT * FROM \"user\" WHERE uid='" . $uid . "' AND password='" . $hash_password . "'");
+    $result = pg_query($conn, "SELECT * FROM \"user\" WHERE uid='" . $uid . "' AND password='" . $hash_password . "';");
 
     if (!$row = pg_fetch_assoc($result)) {
         echo "Käyttäjänimi tai salasana on väärin!";
