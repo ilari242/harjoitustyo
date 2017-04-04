@@ -33,7 +33,7 @@ else {
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $result = pg_query($conn, "INSERT INTO user (first, last, uid, password) 
         VALUES ('$first', '$last', '$uid', '$encrypted_password')");
-        echo "$result";
+        echo "$encrypted_password";
         //header("Location: ../../index.php");
     }
 }
