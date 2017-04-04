@@ -24,7 +24,7 @@ if (empty($password)){
     exit();
 }
 else {
-    $sql = "SELECT uid FROM user WHERE uid='$uid'";
+    $sql = "SELECT uid FROM \"user\" WHERE uid='$uid'";
     $result = $conn->query($sql);
     $uidcheck = pg_num_rows($result);
     if ($uidcheck > 0) {
@@ -32,7 +32,7 @@ else {
         exit();
     } else {
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO user (first, last, uid, password) 
+        $sql = "INSERT INTO \"user\" (first, last, uid, password) 
         VALUES ('$first', '$last', '$uid', '$encrypted_password')";
         $result = $conn->query($sql);
 
