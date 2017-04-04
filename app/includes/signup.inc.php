@@ -8,19 +8,19 @@ $uid = $_POST['uid'];
 $password = $_POST['password'];
 
 if (empty($first)){
-    header("Location: ../signup.php?error=empty");
+    header("Location: ../../signup.php?error=empty");
     exit();
 }
 if (empty($last)){
-    header("Location: ../signup.php?error=empty");
+    header("Location: ../../signup.php?error=empty");
     exit();
 }
 if (empty($uid)){
-    header("Location: ../signup.php?error=empty");
+    header("Location: ../../signup.php?error=empty");
     exit();
 }
 if (empty($password)){
-    header("Location: ../signup.php?error=empty");
+    header("Location: ../../signup.php?error=empty");
     exit();
 }
 else {
