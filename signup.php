@@ -17,7 +17,7 @@
             <input type='text' name='last' placeholder='Lastname'>
             <input type='text' name='uid' placeholder='Username'>
             <input type='password' name='password' placeholder='Password'>
-            <button type='submit'>SIGNUP</button>
+            <button type='submit'>REKISTERÖIDY</button>
         </form>";
     }
 ?>
