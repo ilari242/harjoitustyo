@@ -24,7 +24,7 @@ if (empty($password)){
     exit();
 }
 else {
-    $result = pg_query($conn, "SELECT uid FROM user WHERE uid='$uid'");
+    $result = pg_query($conn, "SELECT uid FROM user WHERE uid='$uid';");
     $uidcheck = pg_num_rows($result);
     if ($uidcheck > 0) {
         header("Location: ../../signup.php?error=username");
@@ -32,7 +32,7 @@ else {
     } else {
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $result = pg_query($conn, "INSERT INTO user (first, last, uid, password) 
-        VALUES ('$first', '$last', '$uid', '$encrypted_password')");
+        VALUES ('$first', '$last', '$uid', '$encrypted_password');");
 
         header("Location: ../../index.php");
     }
