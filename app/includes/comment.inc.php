@@ -7,17 +7,18 @@ function setComments($conn) {
         $message = $_POST['message'];
 
         $sql = "INSERT INTO comment (uid, date, message) VALUES ('$uid', '$date', '$message')";
-        $result = mysqli_query($conn, $sql);
+        $result = pg_query($conn, $sql);
+        //$result = mysqli_query($conn, $sql);
     }
 }
 
 function getComments($conn) {
     $sql = "SELECT * FROM comment";
-    $result = mysqli_query($conn, $sql);
+    $result = pg_query($conn, $sql);
     while($row = $result->fetch_assoc()){
         $id = $row['uid'];
         $sql2 = "SELECT * FROM user WHERE id = '$id'";
-        $result2 = mysqli_query($conn, $sql2);
+        $result2 = pg_query($conn, $sql2);
         if ($row2 = $result2->fetch_assoc())
         echo "<div class='comment-box'><p>";
         echo $row2['uid']."<br>";
@@ -51,7 +52,7 @@ function editComments($conn) {
         $message = $_POST['message'];
 
         $sql = "UPDATE comment SET message='$message' WHERE id='$id'";
-        $result = mysqli_query($conn, $sql);
+        $result = pg_query($conn, $sql);
         header("Location: index.php");
     }
 }
@@ -61,7 +62,7 @@ function deleteComments($conn) {
         $id = $_POST['id'];
 
         $sql = "DELETE FROM comment WHERE id='$id'";
-        $result = mysqli_query($conn, $sql);
+        $result = pg_query($conn, $sql);
         header("Location: index.php");
     }
     else if (isset($_POST['undo'])){
