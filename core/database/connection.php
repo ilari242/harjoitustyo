@@ -7,7 +7,7 @@ class Connection {
 				$config['username'],
 				$config['password'],
 				$config['options'],
-				$config['port'],
+				$config['port']
 			);
 		} catch(PDOException $e) {
 			die($e->getMessage());
