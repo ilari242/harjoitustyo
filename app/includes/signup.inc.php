@@ -34,7 +34,7 @@ else {
         $result = pg_query($conn, "INSERT INTO user (first, last, uid, password) 
         VALUES ('$first', '$last', '$uid', '$encrypted_password');");
         echo "$first";
-        header("Location: ../../index.php");
+        //header("Location: ../../index.php");
     }
 }
 
