@@ -3,7 +3,7 @@ return [
 	'database' => [
 		'name' => 'il99590',
 		'username' => 'il99590',
-		'password' => 'Lyijykyna1',
+		'password' => 'kukka',
 		'connection' => 'pgsql:host=dbstud2.sis.uta.fi', //'mysql:host=127.0.0.1',
 		'options' => [
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
