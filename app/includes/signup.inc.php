@@ -30,8 +30,9 @@ else {
         header("Location: ../../signup.php?error=username");
         exit();
     } else {
-        $result = pg_query($conn, "SELECT * FROM user");
-        echo "$result";
+        $result =  pg_query($conn, "SELECT * FROM user");
+        $resultArr = pg_fetch_all($result);
+        print_r($resultArr);
         /*$encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $result = pg_query($conn, "INSERT INTO user (first, last, uid, password) 
         VALUES ('$first', '$last', '$uid', '$encrypted_password')");
