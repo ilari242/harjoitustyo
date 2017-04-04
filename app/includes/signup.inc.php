@@ -26,7 +26,7 @@ if (empty($password)){
 else {
     $sql = "SELECT uid FROM user WHERE uid='$uid'";
     $result = $conn->query($sql);
-    $uidcheck = mysqli_num_rows($result);
+    $uidcheck = pg_num_rows($result);
     if ($uidcheck > 0) {
         header("Location: ../../signup.php?error=username");
         exit();
