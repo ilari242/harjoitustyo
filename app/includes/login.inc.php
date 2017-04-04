@@ -21,6 +21,7 @@ if ($hash == 0){
     } else {
         $_SESSION['id'] = $row['id'];
         $_SESSION['type'] = $row['type'];
+        echo "JEEEEE";
     }
 
     header("Location: ../../index.php");
