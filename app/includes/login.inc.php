@@ -4,7 +4,7 @@ include '../../core/database/databasehandler.php';
 
 $uid = pg_escape_string($conn, $_POST['uid']);
 $password = pg_escape_string($conn, $_POST['password']);
-'" . $name . "';";
+
 $result = pg_query($conn, "SELECT * FROM \"user\" WHERE uid=''$uid''");
 $row = $result->fetch_assoc();
 $hash_password = $row['password'];
