@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect("dbstud2.sis.uta.fi","5432", "dbname=il99590", "user=il99590", "password=kukka");
+$conn = pg_connect("dbstud2.sis.uta.fi","5432", "il99590", "user=il99590", "password=kukka");
 //$conn = mysqli_connect("localhost", "il99590", "Lyijykyna1", "il99590");
 
 if (!$conn) {
