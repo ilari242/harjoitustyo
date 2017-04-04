@@ -31,9 +31,12 @@ else {
         exit();
     } else {
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
-        $result = pg_query($conn, "INSERT INTO \"user\" (first, last, uid, password) 
-        VALUES ('$first', '$last', '$uid', '$encrypted_password')");
-        header("Location: ../../index.php");
+        $sql = "INSERT INTO \"user\" (first, last, uid, password) 
+        VALUES ('$first', '$last', '$uid', '$encrypted_password')";
+        $result = pg_query($conn, $sql);
+        $resultArr = pg_fetch_all($sql);
+        print_r($resultArr);
+        //header("Location: ../../index.php");
     }
 }
 
