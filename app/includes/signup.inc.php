@@ -20,7 +20,7 @@ if (empty($uid)){
     exit();
 }
 if (empty($password)){
-    header("Location: ../../signup.php?error=empty");
+    header("Location: ../signup.php?error=empty");
     exit();
 }
 else {
