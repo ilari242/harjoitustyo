@@ -6,7 +6,8 @@ class Connection {
 				$config['connection'].';dbname='.$config['name'],
 				$config['username'],
 				$config['password'],
-				$config['options']
+				$config['options'],
+				$config['port']
 			);
 		} catch(PDOException $e) {
 			die($e->getMessage());
