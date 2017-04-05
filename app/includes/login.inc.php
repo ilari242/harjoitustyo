@@ -4,7 +4,8 @@ include '../../core/database/databasehandler.php';
 
 $uid = pg_escape_string($conn, $_POST['uid']);
 $password = pg_escape_string($conn, $_POST['password']);
-$result = pg_query($conn, "SELECT * FROM usertable WHERE uid='$uid'");
+$sql = "SELECT * FROM usertable WHERE uid='$uid'";
+$result = pg_query($conn, $sql);
 $row = pg_fetch_assoc($result);
 $hash_password = $row['password'];
 $hash = password_verify($password, $hash_password);
@@ -13,7 +14,8 @@ if ($hash == 0){
     header("Location: ../../index.php?error=empty");
     exit();
 } else {
-    $result = pg_query($conn, "SELECT * FROM usertable WHERE uid='$uid' AND password='$hash_password'");
+    $sql = "SELECT * FROM usertable WHERE uid='$uid' AND password='$hash_password'";
+    $result = pg_query($conn, $sql);
 
     if (!$row = pg_fetch_assoc($result)) {
         echo "Käyttäjänimi tai salasana on väärin!";
