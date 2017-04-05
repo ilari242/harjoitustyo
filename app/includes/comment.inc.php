@@ -18,7 +18,7 @@ function getComments($conn) {
         $id = $row['uid'];
         $sql2 = "SELECT * FROM usertable WHERE id = '$id'";
         $result2 = pg_query($conn, $sql2);
-        if ($row2 = pg_fetch_assoc($result2))
+        if ($row2 = pg_fetch_assoc($result2)) {
             if (isset($row2['uid'])) {
                 echo "<div class='comment-box'><p>";
                 echo $row2['uid']."<br>";
@@ -33,7 +33,6 @@ function getComments($conn) {
                 echo "</p>";
             }
         }
-        else
         if ($_SESSION['id'] == $row2['id'] || $_SESSION['type'] == 1) {
             echo "<form class='delete-form'method='POST' action='delete_comment.php'>
                 <input type='hidden' name='id' value='" . $row['id'] . "'>
