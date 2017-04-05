@@ -24,7 +24,7 @@ if (empty($password)){
     exit();
 }
 else {
-    $sql = "SELECT uid FROM usertable WHERE uid='$uid'"
+    $sql = "SELECT uid FROM usertable WHERE uid='$uid'";
     $result = pg_query($conn, $sql);
     $uidcheck = pg_num_rows($result);
     if ($uidcheck > 0) {
