@@ -23,20 +23,20 @@
                     Muut käyttäjät:
                 </p>
                 <br>
-                <?php foreach ($users as "$user"):?>
-                    <?php if ($_SESSION['id'] != $user->id) {?>
+                <?php foreach ($usertables as "$usertable"):?>
+                    <?php if ($_SESSION['id'] != $usertable->id) {?>
                         <label class="panel-block">
-                            <?= htmlspecialchars($user['first']); ?>
-                            <?= htmlspecialchars($user['last']); ?>
-                            <?= htmlspecialchars($user['id']); ?>
+                            <?= htmlspecialchars($usertable->first); ?>
+                            <?= htmlspecialchars($usertable->last); ?>
+                            <?= htmlspecialchars($usertable->uid); ?>
                             <br>
-                            <?php if ($user->type != 1) {?>
-                                [<a href="index.php?action=oikeudet&id=<?= $user->id; ?>">Anna adminin oikeudet</a>]
+                            <?php if ($usertable->type != 1) {?>
+                                [<a href="index.php?action=oikeudet&id=<?= $usertable->id; ?>">Anna adminin oikeudet</a>]
                             <?php }
                             else {?>
                                 (admin)
                             <?php } ?>
-                            - [<a class="poista" href="index.php?action=poistaUser&id=<?= $user->id; ?>">Poista käyttäjä</a>]
+                            - [<a class="poista" href="index.php?action=poistaUser&id=<?= $usertable->id; ?>">Poista käyttäjä</a>]
                         </label>
                         <br><br>
                     <?php }
@@ -93,13 +93,13 @@
                     Oma profiili:
                 </p>
                 <br>
-                <?php foreach ($users as $user):?>
+                <?php foreach ($usertables as $usertable):?>
                     <label class="panel-block">
-                        <?php if ($_SESSION['id'] == $user->id) {?>
-                            <?= htmlspecialchars($user->first); ?>
-                            <?= htmlspecialchars($user->last); ?>
-                            <?= htmlspecialchars($user->uid); ?>
-                            - [<a class="poista" href="index.php?action=poistaUser&id=<?= $user->id; ?>">Poista käyttäjä</a>]
+                        <?php if ($_SESSION['id'] == $usertable->id) {?>
+                            <?= htmlspecialchars($usertable->first); ?>
+                            <?= htmlspecialchars($usertable->last); ?>
+                            <?= htmlspecialchars($usertable->uid); ?>
+                            - [<a class="poista" href="index.php?action=poistaUser&id=<?= $usertable->id; ?>">Poista käyttäjä</a>]
                         <?php } ?>
                     </label>
                 <?php endforeach;?>
