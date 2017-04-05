@@ -33,7 +33,6 @@ if(isset($_POST['description']))
                     default, :description, 0, :duedate)')
             ->bind(':description', $_POST['description'])
             ->bind(':duedate', $_POST['duedate'])
-            echo "$_POST['description']";
             ->execute();
     }
 }
