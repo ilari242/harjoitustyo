@@ -101,7 +101,7 @@ $tasks = App::get('database')
     ->query('SELECT * FROM todo')
     ->getAll('Task');
 
-$users = App::get('database')
+$usertables = App::get('database')
     ->query('SELECT * FROM usertable')
     ->getAll('User');
 
