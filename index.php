@@ -77,9 +77,21 @@ if(isset($_GET['action']))
                 $message = "Pyynnöstä puuttui kelvollinen id";
             }
             break;
+            
+        case 'poistaOmaUser':
+            if (isset($_SESSION['id']) == ($_GET['id'])) {
+                App::get('database')
+                    ->query('DELETE FROM usertable WHERE id = :id')
+                    ->bind(':id', $_GET['id'])
+                    ->execute();
+                    session_destroy;
+            } else {
+                $message = "Pyynnöstä puuttui kelvollinen id";
+            }
+            break;
 
         case 'poistaUser':
-            if(isset($_GET['id']) && is_numeric($_GET['id'])) {
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 App::get('database')
                     ->query('DELETE FROM usertable WHERE id = :id')
                     ->bind(':id', $_GET['id'])
