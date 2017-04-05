@@ -8,18 +8,17 @@ function setComments($conn) {
 
         $sql = "INSERT INTO comment (uid, date, message) VALUES ('$uid', '$date', '$message')";
         $result = pg_query($conn, $sql);
-        //$result = mysqli_query($conn, $sql);
     }
 }
 
 function getComments($conn) {
     $sql = "SELECT * FROM comment";
     $result = pg_query($conn, $sql);
-    while($row = $result->fetch_assoc()){
+    while($row = pg_fetch_assoc($result)){
         $id = $row['uid'];
         $sql2 = "SELECT * FROM usertable WHERE id = '$id'";
         $result2 = pg_query($conn, $sql2);
-        if ($row2 = $result2->fetch_assoc())
+        if ($row2 = pg_fetch_assoc($result2))
         echo "<div class='comment-box'><p>";
         echo $row2['uid']."<br>";
         echo $row['date']."<br>";
