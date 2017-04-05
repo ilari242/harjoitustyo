@@ -26,9 +26,9 @@
                 <?php foreach ($users as $user):?>
                     <?php if ($_SESSION['id'] != $user->id) {?>
                         <label class="panel-block">
-                            <?= htmlspecialchars($user->first); ?>
-                            <?= htmlspecialchars($user->last); ?>
-                            <?= htmlspecialchars($user->uid); ?>
+                            <?= htmlspecialchars($user->['first']); ?>
+                            <?= htmlspecialchars($user->['last']); ?>
+                            <?= htmlspecialchars($user->['id']); ?>
                             <br>
                             <?php if ($user->type != 1) {?>
                                 [<a href="index.php?action=oikeudet&id=<?= $user->id; ?>">Anna adminin oikeudet</a>]
