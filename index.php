@@ -79,7 +79,7 @@ if(isset($_GET['action']))
             break;
             
         case 'poistaOmaUser':
-            if (isset($_SESSION['id']) == ($_GET['id'])) {
+            if (($_SESSION['id']) == ($_GET['id'])) {
                 App::get('database')
                     ->query('DELETE FROM usertable WHERE id = :id')
                     ->bind(':id', $_GET['id'])
