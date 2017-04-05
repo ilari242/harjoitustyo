@@ -23,7 +23,7 @@
                     Muut käyttäjät:
                 </p>
                 <br>
-                <?php foreach ($usertables as "$usertable"):?>
+                <?php foreach ($usertables as $usertable):?>
                     <?php if ($_SESSION['id'] != $usertable->id) {?>
                         <label class="panel-block">
                             <?= htmlspecialchars($usertable->first); ?>
