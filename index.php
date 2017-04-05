@@ -30,7 +30,7 @@ if(isset($_POST['description']))
     } else {
         App::get('database')
             ->query('INSERT INTO todo (id, description, completed, duedate) VALUES (
-                    default, :description, false, :duedate)')
+                    default, :description, 0, :duedate)')
             ->bind(':description', $_POST['description'])
             ->bind(':duedate', $_POST['duedate'])
             ->execute();
