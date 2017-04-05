@@ -21,8 +21,9 @@ $message = '';
 if(isset($_POST['description']))
 {
     // Tarkistetaan, että tehtävällä on kuvaus.
-    if(strpos($_POST['description']) < 0) {
-        $message = 'Anna tehtävälle kuvaus ja määräaika.';
+    //if(strlen($_POST['description']) < 0) {
+    if (strpos($_POST['description'], 'error=empty') !== false) {
+        $message = 'Anna tehtävälle kuvaus';
     // Tarkistetaan, että päivämäärä on 1111.1.1 tai 1111.01.01 tai 1111.01.1 tai 1111.1.01
     } else if(!preg_match('/^\d{4}\.\d{1,2}\.\d{1,2}$/', $_POST['duedate'])) {
         $message = 'Anna määräaika muodossa yyyy.mm.dd';
