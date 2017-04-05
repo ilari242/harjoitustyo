@@ -43,9 +43,9 @@ if(isset($_GET['action']))
         case 'merkkaa':
             if(isset($_GET['id']) && is_numeric($_GET['id'])) {
                 App::get('database')
-                    ->query('UPDATE todo SET completed = :completed WHERE id = :id')
+                    ->query('UPDATE todo SET completed = 1 WHERE id = :id')
                     ->bind(':id', $_GET['id'])
-                    ->bind(':completed', true)
+                    //->bind(':completed', true)
                     ->execute();
                 $message = "Tehtävä merkattu valmiiksi.";
             } else {
@@ -56,9 +56,9 @@ if(isset($_GET['action']))
         case 'oikeudet':
             if(isset($_GET['id']) && is_numeric($_GET['id'])) {
                 App::get('database')
-                    ->query('UPDATE usertable SET type = :type WHERE id = :id')
+                    ->query('UPDATE usertable SET type = 1 WHERE id = :id')
                     ->bind(':id', $_GET['id'])
-                    ->bind(':type', true)
+                    //->bind(':type', true)
                     ->execute();
                 $message = "Käyttäjälle luovutettu adminin oikeudet.";
             } else {
