@@ -17,7 +17,7 @@ function getComments($conn) {
     $result = pg_query($conn, $sql);
     while($row = $result->fetch_assoc()){
         $id = $row['uid'];
-        $sql2 = "SELECT * FROM user WHERE id = '$id'";
+        $sql2 = "SELECT * FROM usertable WHERE id = '$id'";
         $result2 = pg_query($conn, $sql2);
         if ($row2 = $result2->fetch_assoc())
         echo "<div class='comment-box'><p>";
