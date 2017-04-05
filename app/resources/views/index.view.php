@@ -99,7 +99,7 @@
                             <?= htmlspecialchars($usertable->first); ?>
                             <?= htmlspecialchars($usertable->last); ?>
                             <?= htmlspecialchars($usertable->uid); ?>
-                            - [<a class="poista" href="index.php?action=poistaUser&id=<?= $usertable->id; ?>">Poista käyttäjä</a>]
+                            - [<a class="poista" href="index.php?action=poistaOmaUser&id=<?= $usertable->id; ?>">Poista käyttäjä</a>]
                         <?php } ?>
                     </label>
                 <?php endforeach;?>
