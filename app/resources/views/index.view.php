@@ -23,8 +23,8 @@
                     Muut käyttäjät:
                 </p>
                 <br>
-                <?php foreach ($users as $user):?>
-                    <?php if ($_SESSION['id'] != $'user'->id) {?>
+                <?php foreach ($users as '$user'):?>
+                    <?php if ($_SESSION['id'] != $user->id) {?>
                         <label class="panel-block">
                             <?= htmlspecialchars($user['first']); ?>
                             <?= htmlspecialchars($user['last']); ?>
