@@ -4,10 +4,14 @@ include '../../core/database/databasehandler.php';
 
 $uid = pg_escape_string($conn, $_POST['uid']);
 $password = pg_escape_string($conn, $_POST['password']);
+echo "$uid";
+echo "$password";
 $result = pg_query($conn, "SELECT * FROM \"user\" WHERE uid='$uid'");
 $row = $result->fetch_assoc();
+echo "$row";
 $hash_password = $row['password'];
 $hash = password_verify($password, $hash_password);
+echo "$hash";
 
 if ($hash == 0){
     header("Location: ../../index.php?error=empty");
