@@ -20,8 +20,8 @@ $message = '';
 
 if(isset($_POST['description']))
 {
-    // Tarkistetaan, että molemmissa kentissä on merkkejä
-    if(strlen($_POST['description']) < 0 || strlen($_POST['duedate']) < 0) {
+    // Tarkistetaan, että tehtävällä on kuvaus.
+    if(strlen($_POST['description']) < 0 {
         $message = 'Anna tehtävälle kuvaus ja määräaika.';
     // Tarkistetaan, että päivämäärä on 1111.1.1 tai 1111.01.01 tai 1111.01.1 tai 1111.1.01
     } else if(!preg_match('/^\d{4}\.\d{1,2}\.\d{1,2}$/', $_POST['duedate'])) {
