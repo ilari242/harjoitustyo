@@ -84,7 +84,8 @@ if(isset($_GET['action']))
                     ->query('DELETE FROM usertable WHERE id = :id')
                     ->bind(':id', $_GET['id'])
                     ->execute();
-                    session_destroy;
+                    session_start();
+                    session_destroy();
             } else {
                 $message = "Pyynnöstä puuttui kelvollinen id";
             }
