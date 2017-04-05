@@ -56,7 +56,7 @@ if(isset($_GET['action']))
         case 'oikeudet':
             if(isset($_GET['id']) && is_numeric($_GET['id'])) {
                 App::get('database')
-                    ->query('UPDATE user SET type = :type WHERE id = :id')
+                    ->query('UPDATE usertable SET type = :type WHERE id = :id')
                     ->bind(':id', $_GET['id'])
                     ->bind(':type', true)
                     ->execute();
@@ -81,7 +81,7 @@ if(isset($_GET['action']))
         case 'poistaUser':
             if(isset($_GET['id']) && is_numeric($_GET['id'])) {
                 App::get('database')
-                    ->query('DELETE FROM user WHERE id = :id')
+                    ->query('DELETE FROM usertable WHERE id = :id')
                     ->bind(':id', $_GET['id'])
                     ->execute();
                 $message = "Käyttäjä poistettu.";
@@ -102,7 +102,7 @@ $tasks = App::get('database')
     ->getAll('Task');
 
 $users = App::get('database')
-    ->query('SELECT * FROM user')
+    ->query('SELECT * FROM usertable')
     ->getAll('User');
 
 require 'app/resources/views/index.view.php';
