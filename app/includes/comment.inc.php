@@ -18,21 +18,12 @@ function getComments($conn) {
         $id = $row['uid'];
         $sql2 = "SELECT * FROM usertable WHERE id = '$id'";
         $result2 = pg_query($conn, $sql2);
-        if ($row2 = pg_fetch_assoc($result2)) {
-            if (isset($row2['uid'])) {
-                echo "<div class='comment-box'><p>";
-                echo $row2['uid']."<br>";
-                echo $row['date']."<br>";
-                echo nl2br($row['message']);
-                echo "</p>";
-            } else {
-                echo "<div class='comment-box'><p>";
-                echo "Anonymous"."<br>";
-                echo $row['date']."<br>";
-                echo nl2br($row['message']);
-                echo "</p>";
-            }
-        }
+        if ($row2 = pg_fetch_assoc($result2)) 
+        echo "<div class='comment-box'><p>";
+        echo $row2['uid']."<br>";
+        echo $row['date']."<br>";
+        echo nl2br($row['message']);
+        echo "</p>";
         if ($_SESSION['id'] == $row2['id'] || $_SESSION['type'] == 1) {
             echo "<form class='delete-form'method='POST' action='delete_comment.php'>
                 <input type='hidden' name='id' value='" . $row['id'] . "'>
