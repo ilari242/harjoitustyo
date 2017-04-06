@@ -25,6 +25,7 @@ function getComments($conn) {
             echo "<div class='comment-box'><p>";
         }*/
         $row2 = pg_fetch_assoc($result2);
+        echo "<div class='comment-box'><p>";
         echo $row2['uid']."<br>";
         echo $row['date']."<br>";
         echo nl2br($row['message']);
