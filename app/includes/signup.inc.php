@@ -2,10 +2,10 @@
 session_start();
 include '../../core/database/databasehandler.php';
 
-$first = $_POST['first'];
-$last = $_POST['last'];
-$uid = $_POST['uid'];
-$password = $_POST['password'];
+$first = pg_escape_string($conn, $_POST['first']);
+$last = pg_escape_string($conn, $_POST['last']);
+$uid = pg_escape_string($conn, $_POST['uid']);
+$password = pg_escape_string($conn, $_POST['password']);
 
 if (empty($first)){
     header("Location: ../../signup.php?error=empty");
