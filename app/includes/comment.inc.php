@@ -27,7 +27,7 @@ function getComments($conn) {
         $row2 = pg_fetch_assoc($result2);
         echo "<div class='comment-box'><p>";
         echo $row2['uid']."<br>";
-        echo $row['date']."<br>";
+        echo $row['date']."<br><br>";
         echo nl2br($row['message']);
         echo "</p>";
         if ($_SESSION['id'] == $row2['id'] || $_SESSION['type'] == 1) {
