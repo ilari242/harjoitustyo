@@ -45,7 +45,6 @@ if(isset($_GET['action']))
                 App::get('database')
                     ->query('UPDATE todo SET completed = 1 WHERE id = :id')
                     ->bind(':id', $_GET['id'])
-                    //->bind(':completed', true)
                     ->execute();
                 $message = "Tehtävä merkattu valmiiksi.";
             } else {
@@ -58,7 +57,6 @@ if(isset($_GET['action']))
                 App::get('database')
                     ->query('UPDATE usertable SET type = 1 WHERE id = :id')
                     ->bind(':id', $_GET['id'])
-                    //->bind(':type', true)
                     ->execute();
                 $message = "Käyttäjälle luovutettu adminin oikeudet.";
             } else {
