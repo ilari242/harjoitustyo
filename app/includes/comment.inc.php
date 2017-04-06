@@ -19,7 +19,10 @@ function getComments($conn) {
         $sql2 = "SELECT * FROM usertable WHERE id = '$id'";
         $result2 = pg_query($conn, $sql2);
         if ($row2 = pg_fetch_assoc($result2)) {
-        echo "<div class='comment-box'><p>";
+            echo "<div class='comment-box'><p>";
+        }
+        else {
+            echo "<div class='comment-box'><p>";
         }
         echo $row2['uid']."<br>";
         echo $row['date']."<br>";
